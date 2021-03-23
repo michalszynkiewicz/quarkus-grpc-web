@@ -43,10 +43,21 @@ npm install npx
 ## Compiling and running the project
 
 ### UI
-Get to the ui directory and run npm and npx in it:
-
+Get to the ui directory:
 ```
 cd ui
+```
+
+Generate gRPC JavaScript files:
+```
+mkdir -p js/dist/proto
+protoc -I . echo.proto --js_out=import_style=commonjs:./js/dist/proto --grpc-web_out=import_style=commonjs,mode=grpcwebtext:./js/dist/proto
+```
+
+And run npm and npx in its `js` subdirectory:
+
+```
+cd js
 npm install
 npx webpack client.js
 ```

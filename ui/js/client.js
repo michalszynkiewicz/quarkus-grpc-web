@@ -1,5 +1,5 @@
-const {EchoRequest, ServerStreamingEchoRequest, EchoResponse} = require('./echo_pb.js');
-const {EchoServiceClient} = require('./echo_grpc_web_pb.js');
+const {EchoRequest, ServerStreamingEchoRequest, EchoResponse} = require('./dist/proto/echo_pb.js');
+const {EchoServiceClient} = require('./dist/proto/echo_grpc_web_pb.js');
 
 var echoService = new EchoServiceClient('http://localhost:8080');
 /* 
