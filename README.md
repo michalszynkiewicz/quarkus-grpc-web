@@ -8,6 +8,12 @@ At the time of writing both, Google and Improbable, gRPC Web variants don't supp
 
 Please note that the example uses Envoy Proxy to translate gRPC Web to native gRPC. We plan to add gRPC Web support to Quarkus but it is not implemented yet at the time of writing.
 
+## What's interesting
+The JavaScript code that communicates with the server is located in `ui/js/client.js`.
+
+The server implementation can be found in `grpc-web/app/src/main/java/com/github/michalszynkiewicz/EchoService.java`.
+
+The example uses [`echo.proto` from gRPC Web project examples](https://github.com/grpc/grpc-web/blob/1.2.1/net/grpc/gateway/examples/echo/echo.proto). 
 
 ## What's needed
 
@@ -63,12 +69,13 @@ npx webpack client.js
 ```
 
 ### Backend application
-The backend application is a maven project with `mvnw`, you can run it in the development mode with:
+The backend application is a maven project. It is located in the `app` directory.
+You can run it in the development mode with:
 ```
 ./mvnw compile quarkus:dev
 ```
 
-You can find further information on packaging and running Quarkus applications, take a look at
+For further information on packaging and running Quarkus applications see
 [Quarkus - Creating Your First Application](https://quarkus.io/guides/getting-started#packaging-and-run-the-application) and [Quarkus - Building a Native Executable](https://quarkus.io/guides/building-native-image).
 
 ### Envoy proxy
@@ -82,5 +89,5 @@ docker run -p 8080:8080 -v $(pwd)/envoy.yaml:/etc/envoy/envoy.yaml -e ENVOY_UID=
 This command will expose the envoy proxy on port 8080.
 
 ## The result
-[mstodo: path to the index.html file]
-To check out the results, open the `index.html` file in your browser.
+To check out the results, open the `ui/index.html` file in your browser.
+
