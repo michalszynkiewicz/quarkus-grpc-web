@@ -1,11 +1,64 @@
 <!DOCTYPE html>
 <html lang="en_US">
-    <head>
-        <meta charset="utf-8">
-        <title>grpc-web with streaming server</title>
-    </head>
-    <body>
-        <h1>check the console</h1>
-        <script src="js/dist/main.js"></script>
-    </body>
+<head>
+    <meta charset="utf-8">
+    <title>grpc-web with Quarkus</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<div class="container">
+<h1>gRPC Web with Quarkus example</h1>
+
+<div class="description">
+    <p>
+    The page sends messages to the application, through Envoy Proxy. The server responds back with the same message.
+    </p>
+    If the unary call is chosen, the reply contains a single message.
+    <br/>
+    Server streaming call returns the message specified amount of times, with the specified delay.
+</div>
+
+<div class="row">
+    <div class="column">
+        <h3>Unary call</h3>
+        <div class="form-group">
+            <label for="unary-message">Unary message</label>
+            <input type="text" id="unary-message">
+        </div>
+        <div class="form-group">
+            <button type="button" id="trigger-unary">Trigger</button>
+        </div>
+        <h4>Result:</h4>
+        <div class="unary-result">
+            <ul id="unary-result"></ul>
+        </div>
+    </div>
+    <div class="column">
+        <h3>Server streaming call</h3>
+        <div class="form-group">
+            <label for="stream-message">Message to be streamed back</label>
+            <input type="text" id="stream-message">
+        </div>
+        <div class="form-group">
+            <label for="stream-count">Number of repetitions</label>
+            <input type="number" id="stream-count">
+        </div>
+        <div class="form-group">
+            <label for="stream-delay">Delay between repetitions</label>
+            <input type="number" id="stream-delay">
+        </div>
+        <div class="form-group">
+            <button type="button" id="trigger-stream">Trigger</button>
+        </div>
+        <h4>Result:</h4>
+        <div class="stream-result">
+            <ul id="stream-result"></ul>
+        </div>
+
+    </div>
+</div>
+</div>
+<script src="js/dist/main.js"></script>
+</body>
 </html>

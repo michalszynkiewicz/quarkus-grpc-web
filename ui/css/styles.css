@@ -1,0 +1,29 @@
+.row {
+    display: flex;
+}
+
+.column {
+    flex: 50%
+}
+
+.container {
+    margin: auto;
+    width: 70%;
+}
+
+input, label {
+    display: block
+}
+
+label {
+    color: #202020;
+    font-size: small;
+}
+
+button {
+    margin-top: 1em;
+}
+
+.description {
+    margin: 3em;
+}
