@@ -28,6 +28,8 @@ You will also need `protoc-gen-grpcweb` to generate `js` code for this demo. Thi
 
 To ease setup of the project, add `protoc`'s  bin directory and the location of `protoc-gen-grpcweb` to your `PATH`.
 
+**NOTE** To use different versions of `protoc` and `protoc-gen-grpcweb`, you will likely need to modify versions
+of libraries in the `package.json` file
 
 ### Installing Node.js
 One of the ways to install Node.js is to use the [Node Version Manager](https://github.com/nvm-sh/nvm) and run `nvm install node`.
