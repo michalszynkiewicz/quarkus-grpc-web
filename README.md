@@ -6,6 +6,8 @@ The Google variant of gRPC is used in this example, with `grpcwebtext` (equivale
 The example demonstrates both, unary and server-side stream streaming.
 At the time of writing both, Google and Improbable, gRPC Web variants don't support client-side and bi-directional streaming.
 
+Please note that the example uses Envoy Proxy to translate gRPC Web to native gRPC. We plan to add gRPC Web support to Quarkus but it is not implemented yet at the time of writing.
+
 
 ## What's needed
 
@@ -36,8 +38,36 @@ Another element you'll need is `npx`. After installing node, install it with
 npm install npx
 ```
 
+## Compiling and running the project
 
-##
+### UI
+Get to the ui directory and run npm and npx in it:
 
+```
+cd ui
+npm install
+npx webpack client.js
+```
 
-##  
+### Backend application
+The backend application is a maven project with `mvnw`, you can run it in the development mode with:
+```
+./mvnw compile quarkus:dev
+```
+
+You can find further information on packaging and running Quarkus applications, take a look at
+[Quarkus - Creating Your First Application](https://quarkus.io/guides/getting-started#packaging-and-run-the-application) and [Quarkus - Building a Native Executable](https://quarkus.io/guides/building-native-image).
+
+### Envoy proxy
+As I mentioned in the introduction, Grpc Web requires a proxy to communicate with gRPC "native".
+
+The easiest way to run Envoy proxy is to use Docker or Podman in the root directory of the project:
+```
+docker run -p 8080:8080 -v $(pwd)/envoy.yaml:/etc/envoy/envoy.yaml -e ENVOY_UID=$(id -u) envoyproxy/envoy:v1.17.0
+```
+
+This command will expose the envoy proxy on port 8080.
+
+## The result
+[mstodo: path to the index.html file]
+To check out the results, open the `index.html` file in your browser.
