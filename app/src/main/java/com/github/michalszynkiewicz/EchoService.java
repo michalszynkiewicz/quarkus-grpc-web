@@ -39,7 +39,7 @@ public class EchoService extends EchoServiceGrpc.EchoServiceImplBase {
         int messageCount = request.getMessageCount();
         int messageInterval = request.getMessageInterval();
         sendWithDelay(messageCount == 0 ? 10 : messageCount, messageInterval == 0 ? 100 : messageInterval,
-                Echo.ServerStreamingEchoResponse.newBuilder().setMessage(message + " streamed").build(), responseObserver);
+                Echo.ServerStreamingEchoResponse.newBuilder().setMessage(message).build(), responseObserver);
     }
 
     <T> void sendWithDelay(int times, int sleep, T response, StreamObserver<T> responseObserver) {
